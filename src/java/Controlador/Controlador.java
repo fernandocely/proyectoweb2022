@@ -5,8 +5,12 @@
  */
 package Controlador;
 
+import Modelo.Cliente;
+import Modelo.ClienteDAO;
 import Modelo.Empleado;
 import Modelo.EmpleadoDAO;
+import Modelo.Producto;
+import Modelo.ProductoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -32,8 +36,13 @@ public class Controlador extends HttpServlet {
      */
     Empleado em=new Empleado();
     EmpleadoDAO edao=new EmpleadoDAO();
+    Cliente c=new Cliente();
+    ClienteDAO cdao=new ClienteDAO();
+    Producto p=new Producto();
+    ProductoDAO pdao=new ProductoDAO();
     int ide;
-    
+    int idc;
+    int idp;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String menu=request.getParameter("menu");
@@ -100,6 +109,17 @@ public class Controlador extends HttpServlet {
             request.getRequestDispatcher("Clientes.jsp").forward(request, response);
         }
         if(menu.equals("NuevaVenta")){
+            switch (accion){
+                case "BuscarCliente":
+                    String dni=request.getParameter("codigocliente");
+                    c.setDni(dni);
+                    c=cdao.buscar(dni);
+                    request.setAttribute("c", c);
+                    break;
+                    
+                    default:
+                    request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
+            }
             request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
         }
       /*      switch (accion){
