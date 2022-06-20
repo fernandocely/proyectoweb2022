@@ -116,7 +116,11 @@ public class Controlador extends HttpServlet {
                     c=cdao.buscar(dni);
                     request.setAttribute("c", c);
                     break;
-                    
+                case "BuscarProducto":
+                    int id=Integer.parseInt(request.getParameter("codigoproducto"));
+                    p=pdao.listarId(id);
+                    request.setAttribute("producto", p);
+                    break;
                     default:
                     request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
             }

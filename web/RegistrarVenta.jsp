@@ -31,29 +31,30 @@
                                 </div>
 
                             </div>
+                                <!--DATOS DEL PRODUCTO -->
                             <div class="form-group">
                                 <label>Datos Producto</label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigoproducto" class="form-control" placeholder="Codigo" >
-                                    <input type="submit" name="accion" value="Buscar" class="btn btn-outline-info"/>
+                                    <input type="text" name="codigoproducto" value="${producto.getIdProducto()}" class="form-control" placeholder="Codigo" >
+                                    <input type="submit" name="accion" value="BuscarProducto" class="btn btn-outline-info"/>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" name="nombrescliente" placeholder="Datos Producto" class="form-control">
+                                    <input type="text" name="nomproducto" value="${producto.getNombres()}" placeholder="Datos Producto" class="form-control">
                                 </div>
                             </div>
 
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="precio" class="form-control" placeholder="$/0.00" >
+                                    <input type="text" name="precio" value="${producto.getPrecio()}" class="form-control" placeholder="$/0.00" >
                                 </div>
                                 <div class="col-sm-3">
-                                    <input type="text" name="cant" placeholder="" class="form-control">
+                                    <input type="number" name="cant" value="1" placeholder="" class="form-control">
                                 </div>
 
                                 <div class="col-sm-3">
-                                    <input type="text" name="stock" placeholder="Stock" class="form-control">
+                                    <input type="text" name="stock" value="${producto.getStock()}" placeholder="Stock" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
